@@ -44,7 +44,8 @@ When("I click the login button", () => {
 });
 
 Then("I should be redirected to the dashboard", () => {
-  cy.url().should("not.include", "/login");
+  cy.url().should("include", "/dashboard");
+  //loginPage.verifyUserInfo();
 });
 
 Then("I should see an error message stating that the entered data is invalid", () => {

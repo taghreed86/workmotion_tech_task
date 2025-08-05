@@ -1,7 +1,7 @@
 class LoginPage {
   elements = {
-    emailInput: () => cy.get('input[name="email"]'),
-    passwordInput: () => cy.get('input[name="password"]'),
+    emailInput: () => cy.get('[id="email"]'),
+    passwordInput: () => cy.get('[id="password"]'),
     loginButton: () => cy.get('[data-cy="login-login-btn"]'),
     errorMessage: () => cy.contains('The email and / or the password you entered is invalid')
   };

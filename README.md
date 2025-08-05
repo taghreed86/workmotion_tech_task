@@ -56,7 +56,7 @@
  
 #### **4. Run Tests**
 
-**To run all tests in headless mode, execute the following command:**
+**To run all tests in headless mode:**
   ```bash
   npx cypress run
   ```
@@ -72,14 +72,14 @@
  - Select the Feature file you need to run.
  - Check the Running result.
 
-**To run tests and generate HTML Report:**
+**To run a specific feature file:**
 ```bash
-npx playwright test --reporter=html
+npx cypress run --spec "cypress/e2e/features/<your-feature-file>.feature"
 ```
 
-**To show the generated HTML Report:**
+**To run specific scenarios with a specific tag inside a specific feature file:**
 ```bash
-npx playwright show-report 
+npx cypress run --env tags="@tag-name" --spec "cypress/e2e/features/<your-feature-file>.feature"
 ```
 
 **To run tests and generate Allure Report:**
