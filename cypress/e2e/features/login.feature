@@ -16,19 +16,23 @@ Feature: WorkMotion Login and Error Handling
     Then I should be redirected to the dashboard
 
 
-  @Unsuccessful-login
+  @unsuccessful-login
   Scenario: Unsuccessful login with incorrect email
     And I enter an invalid email address
     And I enter a valid password
     And I click the login button
     Then I should see an error message stating that the entered data is invalid
 
+
+  @unsuccessful-login
   Scenario: Unsuccessful login with incorrect password
     And I enter a valid email address
     And I enter an invalid password
     And I click the login button
     Then I should see an error message stating that the entered data is invalid
 
+
+  @unsuccessful-login
   Scenario: Unsuccessful login with incorrect email and password
     And I enter an invalid email address
     And I enter an invalid password

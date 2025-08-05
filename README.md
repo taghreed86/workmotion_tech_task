@@ -56,20 +56,21 @@
  
 #### **4. Run Tests**
 
-**To run all tests, execute the following command:**
- - Open Cypress UI:
+**To run all tests in headless mode, execute the following command:**
   ```bash
-  npx cypress open
-  ```
- - Run in headless mode:
-    ```bash
   npx cypress run
   ```
 
 **To run all tests in headed mode:**
-```bash
-npx playwright test --headed
-```
+ - Open Cypress UI:
+  ```bash
+  npx cypress open
+  ```
+ - Select E2E Testing option.
+ - Select `Chrome` Browser.
+ - Click the `Start E2E Testing in Chrome`.
+ - Select the Feature file you need to run.
+ - Check the Running result.
 
 **To run tests and generate HTML Report:**
 ```bash

@@ -10,6 +10,13 @@ Before(() => {
   });
 });
 
+Before({ tags: "@unsuccessful-login" }, () => {
+  cy.intercept("POST", "**/api/v1/authn", {
+    statusCode: 401,
+    fixture: "login-failure.json"
+  }).as("loginFailure");
+});
+
 
 Given("I am on the WorkMotion login page", () => {
   loginPage.navigateToLoginPage();
@@ -25,12 +32,10 @@ When("I enter a valid password", () => {
 });
 
 When("I enter an invalid email address", () => {
-  cy.intercept("POST", "**/api/auth/login", { fixture: "login-failure.json" }).as("loginFailure");
   loginPage.enterEmail(credentials.invalidCredentials.email);
 });
 
 When("I enter an invalid password", () => {
-  cy.intercept("POST", "**/api/auth/login", { fixture: "login-failure.json" }).as("loginFailure");
   loginPage.enterPassword(credentials.invalidCredentials.password);
 });
 

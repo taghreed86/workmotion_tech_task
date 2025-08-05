@@ -4,8 +4,8 @@ node_modules/
 # downloads
 downloads/
 
-# test reports
-playwright-report/
+# screenshots
+screenshots/
 
 # allure results
 allure-results/
