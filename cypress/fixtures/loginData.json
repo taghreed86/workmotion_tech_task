@@ -1,0 +1,10 @@
+{
+  "validCredentials": {
+    "email": "avengers.engineering+hr1@workmotion.com",
+    "password": "DummyPass.12"
+  },
+  "invalidCredentials": {
+    "email": "wrong.user@workmotion.com",
+    "password": "WrongPassword123"
+  }
+}

@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# downloads
+downloads/
+
+# test reports
+playwright-report/
+
+# allure results
+allure-results/
+
+# allure reports
+allure-report/
