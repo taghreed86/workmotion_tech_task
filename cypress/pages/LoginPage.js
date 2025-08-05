@@ -1,9 +1,10 @@
 class LoginPage {
   elements = {
-    emailInput: () => cy.get('[id="email"]'),
-    passwordInput: () => cy.get('[id="password"]'),
+    emailInput: () => cy.get('#email'),
+    passwordInput: () => cy.get('#password'),
     loginButton: () => cy.get('[data-cy="login-login-btn"]'),
-    errorMessage: () => cy.contains('The email and / or the password you entered is invalid')
+    userInfo: () => cy.get('[data-cy="sidebar-user-info-section"]'),
+    errorMessage: () => cy.contains('The email and / or the password you entered is invalid') 
   };
 
   navigateToLoginPage() {
@@ -20,6 +21,10 @@ class LoginPage {
 
   clickLogin() {
     this.elements.loginButton().click();
+  }
+
+  verifyUserInfo() {
+    this.elements.userInfo().should('be.visible');
   }
 
   verifyErrorMessage() {

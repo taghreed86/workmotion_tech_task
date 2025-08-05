@@ -1,0 +1,27 @@
+{
+  "talent": {
+    "firstName": "Sarah",
+    "lastName": "Watson",
+    "email": "ser.wat@gmail.com",
+    "jobTitle": "Senior QA Engineer",
+    "jobDescription": "Design, document, and maintain detailed test cases and test scripts for functional, non-functional, regression, and acceptance testing.",
+    "costCenter": "test"
+  },
+  "contract": {
+    "startDate": "15/09/2025",
+    "endDate": "14/09/2026",
+    "employmentType": "Full-time",
+    "workingHours": "45",
+    "contractType": "Fixed-term"
+  },
+  "compensation": {
+    "baseSalary": "160000",
+    "annualBonus": "15000",
+    "signOnBonus": "1000",
+    "pto": "30"
+  },
+  "timesheetApprover": {
+    "name": "Sarah Watson",
+    "email": "ser.wat@gmail.com"
+  }
+}
