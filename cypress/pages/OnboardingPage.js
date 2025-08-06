@@ -1,9 +1,9 @@
 class OnboardingPage {
   elements = {
     addTalentBtn: () => cy.get('[data-testid="AddIcon"]'),
-    //createNewOption: () => cy.get('[data-testid="create-new-item"]'),
     talentOption: () => cy.get('[data-testid="onboarding-hire-option-talent"]'),
     countryInput: () => cy.get('#select-country'),
+    countryDropDownList: () => cy.get('#react-select-3-listbox'),
     getStartedBtn: () => cy.get('#onboarding-get-started-btn'),
     firstNameInput: () => cy.get('[data-cy="steps-candidate-first-name-input"]'),
     lastNameInput: () => cy.get('[data-cy="steps-candidate-last-name-input"]'),
@@ -54,21 +54,15 @@ class OnboardingPage {
     cy.wait(3000);
   }
 
-/*   selectCreateNew() {
-    this.elements.createNewOption().click();
-  } */
-
-/*   clickTalentOption() {
-    this.elements.talentOption().click();
-  } */
-
   clickTalentOption() {
     this.elements.talentOption().click();
   }
 
   selectCountry(country) {
-    this.elements.countryInput().click().type(country, { delay: 200 }).type('{enter}');
-    
+    this.elements.countryInput().click().type(country, { delay: 200 });
+    this.elements.countryDropDownList().contains(country).click();
+    cy.wait(1000);
+   
   }
 
   clickGetStarted() {
@@ -120,13 +114,9 @@ class OnboardingPage {
   }
 
   enterStartDate(startDate) {
-    this.elements.startDateInput().clear().type(startDate);
+    this.elements.startDateInput().type(startDate);
   }
 
-/*   enterEndDate(endDate) {
-    this.elements.endDateInput().clear().type(endDate);
-  }
- */
   clickWorkFromHomeYes() {
     this.elements.workFromHomeYes().click();
   }
