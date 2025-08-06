@@ -44,10 +44,10 @@ When("I click the login button", () => {
 
 Then("I should be redirected to the dashboard", () => {
   cy.url().should("include", "/dashboard");
-  //LoginPage.verifyCountriesInsightsMapVisiblity();
 });
 
 Then("I should see an error message stating that the entered data is invalid", () => {
-  cy.wait("@loginFailure");
-  LoginPage.verifyErrorMessageVisibilty();
+  cy.wait("@loginFailure").then(() => {
+    LoginPage.verifyErrorMessageVisibilty();
+  });
 });

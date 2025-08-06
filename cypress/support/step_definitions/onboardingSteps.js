@@ -1,6 +1,6 @@
 import { Given, When, Then, Before } from "@badeball/cypress-cucumber-preprocessor";
 import OnboardingPage from "../../pages/onboardingPage.js";
-import LoginHelper from "../../helpers/loginHelper.js";
+import LoginPage from "../../pages/loginPage.js";
 
 
 let onboardingData;
@@ -12,7 +12,12 @@ Before(() => {
 });
 
 Given("I am logged in to the WorkMotion platform", () => {
-  LoginHelper.login();
+    cy.fixture("loginData").then((data) => {
+      LoginPage.navigateToLoginPage();
+      LoginPage.enterEmail(data.validCredentials.email);
+      LoginPage.enterPassword(data.validCredentials.password);
+      LoginPage.clickLogin();
+    });
 });
 
 Given("I am on the Dashboard page", () => {

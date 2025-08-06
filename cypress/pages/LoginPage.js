@@ -21,14 +21,12 @@ class LoginPage {
 
   clickLogin() {
     this.elements.loginButton().click();
+    cy.wait(3000);
   }
 
-/*   verifyCountriesInsightsMapVisiblity() {
-    this.elements.countriesInsightsMap().should('be.visible');
-  }
- */
   verifyErrorMessageVisibilty() {
     this.elements.errorMessage().should('be.visible');
+    
   }
 }
 

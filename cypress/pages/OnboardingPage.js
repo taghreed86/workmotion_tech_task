@@ -3,8 +3,7 @@ class OnboardingPage {
     addTalentBtn: () => cy.get('[data-testid="AddIcon"]'),
     //createNewOption: () => cy.get('[data-testid="create-new-item"]'),
     talentOption: () => cy.get('[data-testid="onboarding-hire-option-talent"]'),
-    //workDirectOption: () => cy.contains('WorkDirect'),
-    countryDropdown: () => cy.get('#select-country'),
+    countryInput: () => cy.get('#select-country'),
     getStartedBtn: () => cy.get('#onboarding-get-started-btn'),
     firstNameInput: () => cy.get('[data-cy="steps-candidate-first-name-input"]'),
     lastNameInput: () => cy.get('[data-cy="steps-candidate-last-name-input"]'),
@@ -52,6 +51,7 @@ class OnboardingPage {
 
     clickAddTalent() {
     this.elements.addTalentBtn().click();
+    cy.wait(3000);
   }
 
 /*   selectCreateNew() {
@@ -67,8 +67,8 @@ class OnboardingPage {
   }
 
   selectCountry(country) {
-    this.elements.countryDropdown().type(country);
-    cy.contains(country).click();
+    this.elements.countryInput().click().type(country, { delay: 200 }).type('{enter}');
+    
   }
 
   clickGetStarted() {
