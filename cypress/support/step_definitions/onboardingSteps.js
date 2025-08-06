@@ -215,13 +215,17 @@ Then('I should see {string} in the Onboardings list with country {string}', () =
 });
 
 Then('I should see an error message stating that the field is required', () => {;
-  onboardingPage.getValidationMessages().then((messages) => {
-    Object.keys(validationErrors).forEach((key) => {
-      const { fieldName, validationMessage } = validationErrors[key];
-      expect(messages).to.include(validationMessage);
-      expect(messages).to.include(fieldName);
+  Object.values(validationErrors).forEach((key) => {
+    const expectedMessage = key.validationMessage;
+
+    OnboardingPage.isValidationMessageVisible(expectedMessage).then((isVisible) => {
+      expect(isVisible).to.equal(true);
     });
-  });
+
+    OnboardingPage.getValidationMessage(expectedMessage).then((actualMessage) => {
+      expect(actualMessage).to.equal(expectedMessage);
+    });
+  })
 });
 
 

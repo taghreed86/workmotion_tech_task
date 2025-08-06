@@ -258,6 +258,27 @@ class OnboardingPage {
      
   } */
 
+  isValidationMessageVisible(expectedMessage) {
+    return this.elements.validationMessages().then(($messages) => {
+      const matchingElement = [...$messages].find(
+        (el) => el.innerText.trim() === expectedMessage
+      );
+
+      if (!matchingElement) return false;
+
+      return cy.wrap(matchingElement).scrollIntoView().should('be.visible').then(() => true);
+    });
+  }
+
+  getValidationMessage(expectedMessage) {
+    return this.elements.validationMessages().then(($messages) => {
+      const message = [...$messages]
+        .map((el) => el.innerText.trim())
+        .find((msg) => msg === expectedMessage);
+      return message || null;
+    });
+  }
+
 }
 
 export default new OnboardingPage();
