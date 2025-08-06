@@ -13,14 +13,6 @@ Before(() => {
   });
 });
 
-Before({ tags: "@unsuccessful-login" }, () => {
-  cy.intercept("POST", "**/api/v1/authn", {
-    statusCode: 401,
-    fixture: "login-failure.json"
-  }).as("loginFailure");
-});
-
-
 Given("I am on the WorkMotion login page", () => {
   LoginPage.navigateToLoginPage();
 });
@@ -51,12 +43,11 @@ Then("I should be redirected to the dashboard", () => {
 });
 
 Then("I should see an error message stating that the entered data is invalid", () => {
-  cy.wait("@loginFailure").then(() => {
-    LoginPage.isErrorMessageVisibile().then((isVisible) => {
-      expect(isVisible).to.equal(true);
+  LoginPage.isErrorMessageVisibile().then((isVisible) => {
+    expect(isVisible).to.equal(true);
     });
-    LoginPage.getErrorMessageText().then((text) => {
-      expect(text).to.equal(validationError.message);
-    });
+
+  LoginPage.getErrorMessageText().then((text) => {
+    expect(text).to.equal(validationError.message);
   });
 });

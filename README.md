@@ -82,15 +82,4 @@ npx cypress run --spec "cypress/e2e/features/<your-feature-file>.feature"
 ```bash
 npx cypress open --env TAGS="@tagName"
 ```
-
-**To run tests and generate Allure Report:**
-```bash
-npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
-```
-
-**To show the generated Allure report:**
-```bash
-npx allure generate ./allure-results --clean -o ./allure-report
-npx allure open ./allure-report
-```
 ***Now you are ready to run the Automated tests for WorkMotion Platform locally!*** 🚀

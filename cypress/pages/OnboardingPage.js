@@ -248,16 +248,6 @@ class OnboardingPage {
     return this.elements.onboardingsListCountry().eq(0).invoke('text');
   }
 
-/*   isValidationMessagesVisible() {
-    return this.elements.validationMessages().should('be.visible');
-  }
-
-  getValidationMessages() {
-    return this.elements.validationMessages().then(($els => 
-      Cypress.$.makeArray($els).map(el => el.innerText.trim())));
-     
-  } */
-
   isValidationMessageVisible(expectedMessage) {
     return this.elements.validationMessages().then(($messages) => {
       const matchingElement = [...$messages].find(
