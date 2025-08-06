@@ -27,8 +27,9 @@
     ```
    
 - Open it in `VS Code`.
-    Open `VS Code`-------> Open `File` menu ---------> Select `Open Folder` option ---------> Open the project folder.>
-    Open `Terminal` menu -----------> Select `New Terminal` option
+  
+    - Open `VS Code`-------> Open `File` menu ---------> Select `Open Folder` option ---------> Open the project folder.
+    - Open `Terminal` menu -----------> Select `New Terminal` option
 
 
 #### **3. Install Dependencies**
@@ -92,14 +93,4 @@ npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generato
 npx allure generate ./allure-results --clean -o ./allure-report
 npx allure open ./allure-report
 ```
-
-**To run all tests in debug mode:**
-```bash
-npx playwright test --debug
-```
-
-**To debug one test on a specific line, run the following command:**
-```bash
-npx playwright test <tests_file>:<line_number> --debug
-```
-***Now you are ready to run the Automated tests for Deel Salary Insights locally!*** 🚀
+***Now you are ready to run the Automated tests for WorkMotion Platform locally!*** 🚀
