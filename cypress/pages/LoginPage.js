@@ -23,10 +23,10 @@ class LoginPage {
     this.elements.loginButton().click();
     cy.wait(3000);
   }
-  
+
   isErrorMessageVisibile() {
     return this.elements.errorMessage().then(($el) => {
-     return Cypress.$($el).is(':visible'); // returns true or false
+     return Cypress.$($el).is(':visible'); 
     });
   }
 

@@ -4,10 +4,14 @@ import LoginPage from "../../pages/loginPage.js";
 
 
 let onboardingData;
+let validationErrors;
 
 Before(() => {
   cy.fixture("onboardingData").then((data) => {
     onboardingData = data;
+  });
+  cy.fixture("onboardingFieldsValidations").then((data) => {
+    validationErrors = data;
   });
 });
 
@@ -198,7 +202,7 @@ When('I navigate to the {string} tab', () => {
   OnboardingPage.openOnboardingsTab();
 });
 
-Then('I should see {string} in the Onboardings tab with country {string}', () => {
+Then('I should see {string} in the Onboardings list with country {string}', () => {
   const fullName = `${onboardingData.firstName} ${onboardingData.lastName}`;
 
   OnboardingPage.getTheNewlyAddedTalentName().then((actualText) => {
@@ -207,6 +211,16 @@ Then('I should see {string} in the Onboardings tab with country {string}', () =>
 
   OnboardingPage.getTheNewlyAddedTalentCountry().then((actualText) => {
     expect(actualText.trim()).to.equal(onboardingData.country);
+  });
+});
+
+Then('I should see an error message stating that the field is required', () => {;
+  onboardingPage.getValidationMessages().then((messages) => {
+    Object.keys(validationErrors).forEach((key) => {
+      const { fieldName, validationMessage } = validationErrors[key];
+      expect(messages).to.include(validationMessage);
+      expect(messages).to.include(fieldName);
+    });
   });
 });
 

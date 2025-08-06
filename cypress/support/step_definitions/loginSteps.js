@@ -8,7 +8,7 @@ Before(() => {
   cy.fixture("loginData").then((data) => {
     credentials = data;
   });
-  cy.fixture("login-failure").then((data) => {
+  cy.fixture("loginFailure").then((data) => {
     validationError = data;
   });
 });

@@ -47,6 +47,7 @@ class OnboardingPage {
     onboardingsTab: () => cy.contains('Onboardings'),
     onboardingsListTalentName: () => cy.get('[data-cy="talents-name-cell"]'),
     onboardingsListCountry: () => cy.get('[data-testid="country-name"]'),
+    validationMessages: () => cy.get('span[class="sc-iHGNWf htigYx"]'),
 
   };
 
@@ -200,7 +201,7 @@ class OnboardingPage {
 
   isCostBreakdownVisible() {
   return this.elements.costBreakdownPopup().then(($el) => {
-    return Cypress.$($el).is(':visible'); // returns true or false
+    return Cypress.$($el).is(':visible');
     });
   }
 
@@ -246,6 +247,16 @@ class OnboardingPage {
   getTheNewlyAddedTalentCountry() {
     return this.elements.onboardingsListCountry().eq(0).invoke('text');
   }
+
+/*   isValidationMessagesVisible() {
+    return this.elements.validationMessages().should('be.visible');
+  }
+
+  getValidationMessages() {
+    return this.elements.validationMessages().then(($els => 
+      Cypress.$.makeArray($els).map(el => el.innerText.trim())));
+     
+  } */
 
 }
 

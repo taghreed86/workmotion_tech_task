@@ -6,14 +6,14 @@ Feature: Talent Onboarding Workflow
   Background:
     Given I am logged in to the WorkMotion platform
     And I am on the Dashboard page
-
- @successful-add-talent
-  Scenario: Add a new talent with valid data and verify it appears in the Onboardings list
     When I click the "Add Talent" button
     And I click "Talent Option"
     And I select "<country>" as the country
     And I click the "Get Started" button
-    And I enter "<firstName>" as First Name
+
+ @successful-add-talent
+  Scenario: Add a new talent with valid data and verify it appears in the Onboardings list
+    When I enter "<firstName>" as First Name
     And I enter "<lastName>" as Last Name
     And I select "<eligibilityOption>" for eligibility to work in the selected country
     And I select "<executiveOption>" for executive role
@@ -53,18 +53,11 @@ Feature: Talent Onboarding Workflow
     When I click the "Go To Talent List" button
     Then I should be redirected to the Talents Dashboard
     When I navigate to the "Onboardings" tab
-    Then I should see "<firstName> <lastName>" in the Onboardings tab with country "<country>"
+    Then I should see "<firstName> <lastName>" in the Onboardings list with country "<country>"
 
 
-#   @fields-validations
-#   Scenario: Test required field validations
-#     When I click the "Hire Now" button
-#     And I select "Create New" from the dropdown
-#     And I choose "Talent" onboarding option
-#     And I select "WorkDirect" as the onboarding type
-#     And I choose the country "Canada"
-#     And I click the "Get Started" button
-#     And I click the "Continue" button
-#     Then I should see an error message for missing "FirstName"
-#     And I should see an error message for missing "Contract Start Date"
-#     And I should see an error message for missing "Talent Email"
+  @fields-validations
+  Scenario: Test required fields validations
+    When I click the "Continue" button
+    Then I should see an error message stating that the field is required
+    

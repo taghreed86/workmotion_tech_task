@@ -77,9 +77,9 @@
 npx cypress run --spec "cypress/e2e/features/<your-feature-file>.feature"
 ```
 
-**To run specific scenarios with a specific tag inside a specific feature file:**
+**To run specific scenarios with a specific tag in headed mode:**
 ```bash
-npx cypress run --env tags="@tag-name" --spec "cypress/e2e/features/<your-feature-file>.feature"
+npx cypress open --env TAGS="@tagName"
 ```
 
 **To run tests and generate Allure Report:**

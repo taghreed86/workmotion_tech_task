@@ -1,0 +1,55 @@
+{
+  "talentFirstName": {
+    "fieldName": "Talent's first name(s)*",
+    "validationMessage": "Talent's first name(s) field is required"
+  },
+  "talentLastName": {
+    "fieldName": "Talent's last name(s)*",
+    "validationMessage": "Talent's last name(s) field is required"
+  },
+  "workEligibility": {
+    "fieldName": "The talent is eligible to work in Canada*",
+    "validationMessage": "The talent is eligible to work in Canada field is required"
+  },
+  "isExecutive": {
+    "fieldName": "Is the talent an executive?*",
+    "validationMessage": "Is the talent an executive? field is required"
+  },
+  "jobTitle": {
+    "fieldName": "Job title*",
+    "validationMessage": "Job title field is required"
+  },
+  "jobDescription": {
+    "fieldName": "Job description*",
+    "validationMessage": "Job description field is required"
+  },
+  "employmentType": {
+    "fieldName": "Employment type*",
+    "validationMessage": "Employment type field is required"
+  },
+  "approverName": {
+    "fieldName": "Timesheets approver name*",
+    "validationMessage": "Timesheets approver name field is required"
+  },
+  "approverEmail": {
+    "fieldName": "Timesheets approver email*",
+    "validationMessage": "Timesheets approver email field is required"
+  },
+  "contractType": {
+    "fieldName": "Contract type*",
+    "validationMessage": "Contract type field is required"
+  },
+  "contractStartDate": {
+    "fieldName": "Contract start date*",
+    "validationMessage": "Contract start date field is required"
+  },
+  "remoteWork": {
+    "fieldName": "Is the talent going to work from home?*",
+    "validationMessage": "Is the talent going to work from home? field is required"
+  },
+  "reimburseExpenses": {
+    "fieldName": "Do you want to reimburse expenses?*",
+    "validationMessage": "Do you want to reimburse expenses? field is required"
+  }
+}
+
