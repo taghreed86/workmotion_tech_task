@@ -3,7 +3,7 @@ class LoginPage {
     emailInput: () => cy.get('#email'),
     passwordInput: () => cy.get('#password'),
     loginButton: () => cy.get('[data-cy="login-login-btn"]'),
-    userInfo: () => cy.get('[data-cy="sidebar-user-info-section"]'),
+    countriesInsightsMap: () => cy.get('[data-cy="countries-insights"]'),
     errorMessage: () => cy.contains('The email and / or the password you entered is invalid') 
   };
 
@@ -23,11 +23,11 @@ class LoginPage {
     this.elements.loginButton().click();
   }
 
-  verifyUserInfo() {
-    this.elements.userInfo().should('be.visible');
+/*   verifyCountriesInsightsMapVisiblity() {
+    this.elements.countriesInsightsMap().should('be.visible');
   }
-
-  verifyErrorMessage() {
+ */
+  verifyErrorMessageVisibilty() {
     this.elements.errorMessage().should('be.visible');
   }
 }

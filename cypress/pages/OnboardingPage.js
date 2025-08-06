@@ -1,9 +1,9 @@
 class OnboardingPage {
   elements = {
-    hireNowBtn: () => cy.get('[data-testid="add-employee-menu"]'),
-    createNewOption: () => cy.get('[data-testid="create-new-item"]'),
-    //talentOption: () => cy.contains('Talent'),
-    workDirectOption: () => cy.contains('WorkDirect'),
+    addTalentBtn: () => cy.get('[data-testid="AddIcon"]'),
+    //createNewOption: () => cy.get('[data-testid="create-new-item"]'),
+    talentOption: () => cy.get('[data-testid="onboarding-hire-option-talent"]'),
+    //workDirectOption: () => cy.contains('WorkDirect'),
     countryDropdown: () => cy.get('#select-country'),
     getStartedBtn: () => cy.get('#onboarding-get-started-btn'),
     firstNameInput: () => cy.get('[data-cy="steps-candidate-first-name-input"]'),
@@ -50,20 +50,20 @@ class OnboardingPage {
 
   };
 
-    clickHireNow() {
-    this.elements.hireNowBtn().click();
+    clickAddTalent() {
+    this.elements.addTalentBtn().click();
   }
 
-  selectCreateNew() {
+/*   selectCreateNew() {
     this.elements.createNewOption().click();
-  }
+  } */
 
 /*   clickTalentOption() {
     this.elements.talentOption().click();
   } */
 
-  clickWorkDirectOption() {
-    this.elements.workDirectOption().click();
+  clickTalentOption() {
+    this.elements.talentOption().click();
   }
 
   selectCountry(country) {

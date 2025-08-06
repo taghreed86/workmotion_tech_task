@@ -9,9 +9,9 @@ Feature: Talent Onboarding Workflow
 
  @successful-add-talent
   Scenario: Add a new talent with valid data and verify it appears in the Onboardings list
-    When I click the "Hire Now" button
-    And I select "Create New" from the dropdown
-    And I select "WorkDirect" as the onboarding type
+    When I click the "Add Talent" button
+    #And I select "Create New" from the dropdown
+    And I click "Talent Option"
     And I select "<country>" as the country
     And I click the "Get Started" button
     And I enter "<firstName>" as First Name

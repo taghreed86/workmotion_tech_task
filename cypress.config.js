@@ -2,6 +2,7 @@ import { defineConfig } from "cypress";
 import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 import { createEsbuildPlugin } from "@badeball/cypress-cucumber-preprocessor/esbuild";
+import path from "path";
 
 export default defineConfig({
   e2e: {
@@ -10,7 +11,9 @@ export default defineConfig({
     supportFile: false,
     setupNodeEvents: async (on, config) => {
       await addCucumberPreprocessorPlugin(on, config, {
-        stepDefinitions: "cypress/support/step_definitions/**/*.js",
+        stepDefinitions: [
+          path.resolve("cypress/support/step_definitions/**/*.js"), 
+        ],
       });
 
       on(

@@ -1,6 +1,7 @@
 import { Given, When, Then, Before } from "@badeball/cypress-cucumber-preprocessor";
-import onboardingPage from "../../pages/OnboardingPage";
+import OnboardingPage from "../../pages/onboardingPage.js";
 import LoginHelper from "../../helpers/loginHelper.js";
+
 
 let onboardingData;
 
@@ -20,160 +21,160 @@ Given("I am on the Dashboard page", () => {
 
 When('I click the {string} button', (button) => {
   switch (button) {
-    case "Hire Now":
-      onboardingPage.clickHireNow();
+    case "Add Talent":
+      OnboardingPage.clickAddTalent();
       break;
     case "Get Started":
-      onboardingPage.clickGetStarted();
+      OnboardingPage.clickGetStarted();
       break;
     case "Continue":
-      onboardingPage.clickContinue();
+      OnboardingPage.clickContinue();
       break;
     case "Finish":
-      onboardingPage.clickFinish();
+      OnboardingPage.clickFinish();
       break;
     case "Go To Talent List":
-      onboardingPage.clickGoToTalentList();
+      OnboardingPage.clickGoToTalentList();
       break;
     default:
       throw new Error(`Unknown button: ${button}`);
   }
 });
 
-When('I select {string} from the dropdown', () => {
-  onboardingPage.selectCreateNew();
-});
+/* When('I select {string} from the dropdown', () => {
+  OnboardingPage.selectCreateNew();
+}); */
 
-When('I select {string} as the onboarding type', () => {
-  onboardingPage.clickWorkDirectOption();
+When('I click "Talent Option"', () => {
+  OnboardingPage.clickTalentOption();
 });
 
 When('I select {string} as the country', () => {
-  onboardingPage.selectCountry(onboardingData.country);
+  OnboardingPage.selectCountry(onboardingData.country);
 });
 
 When('I enter {string} as First Name', () => {
-  onboardingPage.enterFirstName(onboardingData.firstName);
+  OnboardingPage.enterFirstName(onboardingData.firstName);
 });
 
 When('I enter {string} as Last Name', () => {
-  onboardingPage.enterLastName(onboardingData.lastName);
+  OnboardingPage.enterLastName(onboardingData.lastName);
 });
 
 When('I select {string} for eligibility to work in the selected country', () => {
-  onboardingPage.clickEligibilityYes();
+  OnboardingPage.clickEligibilityYes();
 });
 
 When('I select {string} for executive role', () => {
-  onboardingPage.clickExecutiveNo();
+  OnboardingPage.clickExecutiveNo();
 });
 
 When('I enter {string} as Job Title', () => {
-  onboardingPage.enterJobTitle(onboardingData.jobTitle);
+  OnboardingPage.enterJobTitle(onboardingData.jobTitle);
 });
 
 When('I enter {string} as Job Description', () => {
-  onboardingPage.enterJobDescription(onboardingData.jobDescription);
+  OnboardingPage.enterJobDescription(onboardingData.jobDescription);
 });
 
 When('I select {string} as Employment Type', () => {
-  onboardingPage.selectEmploymentTypeFullTime();
+  OnboardingPage.selectEmploymentTypeFullTime();
 });
 
 When('I set working hours per week to {string}', () => {
-  onboardingPage.enterWorkingHours(onboardingData.workingHours);
+  OnboardingPage.enterWorkingHours(onboardingData.workingHours);
 });
 
 When('I enter {string} as Timesheet Approver Name', () => {
-  onboardingPage.enterTimesheetApproverName(onboardingData.timesheetApproverName);
+  OnboardingPage.enterTimesheetApproverName(onboardingData.timesheetApproverName);
 });
 
 When('I enter {string} as Timesheet Approver Email', () => {
-  onboardingPage.enterTimesheetApproverEmail(onboardingData.timesheetApproverEmail);
+  OnboardingPage.enterTimesheetApproverEmail(onboardingData.timesheetApproverEmail);
 });
 
 When('I select {string} as Contract Type', () => {
-  onboardingPage.selectContractTypePermanent();
+  OnboardingPage.selectContractTypePermanent();
 });
 
 When('I set Contract Start Date to {string}', () => {
-  onboardingPage.enterStartDate(onboardingData.startDate);
+  OnboardingPage.enterStartDate(onboardingData.startDate);
 });
 
 When('I select {string} for work from home option', () => {
-  onboardingPage.clickWorkFromHomeYes();
+  OnboardingPage.clickWorkFromHomeYes();
 });
 
 When('I select {string} for reimburse expenses', () => {
-  onboardingPage.clickReimburseExpensesNo();
+  OnboardingPage.clickReimburseExpensesNo();
 });
 
 When('I enter {string} as Cost Center Invoice Reference', () => {
-  onboardingPage.enterCostCenterReference(onboardingData.costCenterInvoiceReference);
+  OnboardingPage.enterCostCenterReference(onboardingData.costCenterInvoiceReference);
 });
 
 When('I select {string} as Sub Entity', () => {
-  onboardingPage.selectSubEntity(onboardingData.subEntity);
+  OnboardingPage.selectSubEntity(onboardingData.subEntity);
 });
 
 When('I enter {string} as Paid Time Off \\(PTO)', () => {
-  onboardingPage.enterPTO(onboardingData.pto);
+  OnboardingPage.enterPTO(onboardingData.pto);
 });
 
 When('I select {string} for Carry Over Unused PTO', () => {
-  onboardingPage.clickCarryOverUnusedPTONo();
+  OnboardingPage.clickCarryOverUnusedPTONo();
 });
 
 When('I select {string} for Compensated for Bank Holidays', () => {
-  onboardingPage.clickCompensatedForBankHolidaysYes();
+  OnboardingPage.clickCompensatedForBankHolidaysYes();
 });
 
 When('I enter {string} as Termination Notice Period', () => {
-  onboardingPage.enterTerminationNoticePeriod(onboardingData.terminationNoticePeriod);
+  OnboardingPage.enterTerminationNoticePeriod(onboardingData.terminationNoticePeriod);
 });
 
 When('I select {string} for ESOP', () => {
-  onboardingPage.clickESOPNo();
+  OnboardingPage.clickESOPNo();
 });
 
 When('I select {string} for Health Insurance', () => {
-  onboardingPage.clickHealthInsuranceYes();
+  OnboardingPage.clickHealthInsuranceYes();
 });
 
 When('I enter {string} as Base Salary per Year', () => {
-  onboardingPage.enterBaseSalary(onboardingData.baseSalary);
+  OnboardingPage.enterBaseSalary(onboardingData.baseSalary);
 });
 
 When('I select {string} for Receive Bonus', () => {
-  onboardingPage.clickReceiveBonusYes();
+  OnboardingPage.clickReceiveBonusYes();
 });
 
 When('I enter {string} as Annual Bonus Amount', () => {
-  onboardingPage.enterGrossAnnualBonus(onboardingData.annualBonus);
+  OnboardingPage.enterGrossAnnualBonus(onboardingData.annualBonus);
 });
 
 When('I select {string} as Bonus Frequency', () => {
-  onboardingPage.selectBonusFrequency(onboardingData.bonusFrequency);
+  OnboardingPage.selectBonusFrequency(onboardingData.bonusFrequency);
 });
 
 When('I select {string} for Variable Bonus', () => {
-  onboardingPage.clickVariableBonusNo();
+  OnboardingPage.clickVariableBonusNo();
 });
 
 When('I enter {string} as Sign-On Bonus', () => {
-  onboardingPage.enterSignOnBonus(onboardingData.signOnBonus);
+  OnboardingPage.enterSignOnBonus(onboardingData.signOnBonus);
 });
 
 When('I click the "View Cost Breakdown" button', () => {
-  onboardingPage.clickViewCostBreakdown();
+  OnboardingPage.clickViewCostBreakdown();
 });
 
 When('I verify cost breakdown popup appears', () => {
-  onboardingPage.verifyCostBreakdownVisiblity();
+  OnboardingPage.verifyCostBreakdownVisiblity();
 });
 
 When('I close the cost breakdown popup', () => {
-  onboardingPage.closeCostBreakdownPopup();
+  OnboardingPage.closeCostBreakdownPopup();
 });
 
 When('I enter {string} as Talent Email', () => {
@@ -183,20 +184,20 @@ When('I enter {string} as Talent Email', () => {
 
   const uniqueEmail = `${prefix}+${randomNumber}@${domain}`;
 
-  onboardingPage.enterTalentEmail(uniqueEmail);
+  OnboardingPage.enterTalentEmail(uniqueEmail);
 });
 
 
 When('I click the "Confirmation" checkbox', () => {
-  onboardingPage.clickConfirmationCheckbox();
+  OnboardingPage.clickConfirmationCheckbox();
 });
 
 Then('A success card should be displayed', () => {
-  onboardingPage.verifySuccessCardVisibility();
+  OnboardingPage.verifySuccessCardVisibility();
 });
 
 Then('A success message with text {string} should be displayed', () => {
-  onboardingPage.verifySuccessMessageVisibility();
+  OnboardingPage.verifySuccessMessageVisibility();
 });
 
 Then('I should be redirected to the Talents Dashboard', () => {
@@ -204,7 +205,7 @@ Then('I should be redirected to the Talents Dashboard', () => {
 });
 
 When('I navigate to the {string} tab', () => {
-  onboardingPage.openOnboardingsTab();
+  OnboardingPage.openOnboardingsTab();
 });
 
 Then('I should see {string} in the Onboardings tab with country {string} and status {string}', () => {

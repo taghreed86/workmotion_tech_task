@@ -1,8 +1,7 @@
 import { Given, When, Then, Before } from "@badeball/cypress-cucumber-preprocessor";
-import loginPage from "../../pages/LoginPage.js";
+import LoginPage from "../../pages/loginPage.js";
 
 let credentials; 
-
 
 Before(() => {
   cy.fixture("loginData").then((data) => {
@@ -19,36 +18,36 @@ Before({ tags: "@unsuccessful-login" }, () => {
 
 
 Given("I am on the WorkMotion login page", () => {
-  loginPage.navigateToLoginPage();
+  LoginPage.navigateToLoginPage();
 });
 
 
 When("I enter a valid email address", () => {
-  loginPage.enterEmail(credentials.validCredentials.email);
+  LoginPage.enterEmail(credentials.validCredentials.email);
 });
 
 When("I enter a valid password", () => {
-  loginPage.enterPassword(credentials.validCredentials.password);
+  LoginPage.enterPassword(credentials.validCredentials.password);
 });
 
 When("I enter an invalid email address", () => {
-  loginPage.enterEmail(credentials.invalidCredentials.email);
+  LoginPage.enterEmail(credentials.invalidCredentials.email);
 });
 
 When("I enter an invalid password", () => {
-  loginPage.enterPassword(credentials.invalidCredentials.password);
+  LoginPage.enterPassword(credentials.invalidCredentials.password);
 });
 
 When("I click the login button", () => {
-  loginPage.clickLogin();
+  LoginPage.clickLogin();
 });
 
 Then("I should be redirected to the dashboard", () => {
   cy.url().should("include", "/dashboard");
-  //loginPage.verifyUserInfo();
+  //LoginPage.verifyCountriesInsightsMapVisiblity();
 });
 
 Then("I should see an error message stating that the entered data is invalid", () => {
   cy.wait("@loginFailure");
-  loginPage.verifyErrorMessage();
+  LoginPage.verifyErrorMessageVisibilty();
 });
