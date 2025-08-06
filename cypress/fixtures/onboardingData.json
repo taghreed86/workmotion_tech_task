@@ -1,27 +1,34 @@
 {
-  "talent": {
-    "firstName": "Sarah",
-    "lastName": "Watson",
-    "email": "ser.wat@gmail.com",
-    "jobTitle": "Senior QA Engineer",
-    "jobDescription": "Design, document, and maintain detailed test cases and test scripts for functional, non-functional, regression, and acceptance testing.",
-    "costCenter": "test"
-  },
-  "contract": {
-    "startDate": "15/09/2025",
-    "endDate": "14/09/2026",
-    "employmentType": "Full-time",
-    "workingHours": "45",
-    "contractType": "Fixed-term"
-  },
-  "compensation": {
-    "baseSalary": "160000",
-    "annualBonus": "15000",
-    "signOnBonus": "1000",
-    "pto": "30"
-  },
-  "timesheetApprover": {
-    "name": "Sarah Watson",
-    "email": "ser.wat@gmail.com"
-  }
+  "country": "Canada",
+  "firstName": "Sarah",
+  "lastName": "Watson",
+  "eligibilityOption": "Yes",
+  "executiveOption": "No",
+  "jobTitle": "Senior QA Engineer",
+  "jobDescription": "Design, document, and maintain detailed test cases and test scripts for functional, non-functional, regression, and acceptance testing.",
+  "employmentType": "Full-time",
+  "workingHours": "45",
+  "timesheetApproverName": "Sarah Watson",
+  "timesheetApproverEmail": "ser.wat@gmail.com",
+  "contractType": "Permanent",
+  "startDate": "15/09/2025",
+  "workFromHomeOption": "Yes",
+  "reimburseExpensesOption": "No",
+  "costCenterInvoiceReference": "Main Cost Center",
+  "subEntity": "WorkMotion Software GmbH",
+  "pto": "30",
+  "carryOverPTOOption": "No",
+  "bankHolidayCompensationOption": "Yes",
+  "terminationNoticePeriod": "4",
+  "esopOption": "No",
+  "healthInsuranceOption": "Yes",
+  "baseSalary": "160000",
+  "receiveBonusOption": "Yes",
+  "annualBonus": "15000",
+  "bonusFrequency": "Quarterly",
+  "variableBonusOption": "No",
+  "signOnBonus": "1000",
+  "talentEmail": "ser.wat@gmail.com",
+  "successMessage": "Thank you for completing the onboarding!",
+  "expectedStatus": "EMPLOYEE INVITED"
 }

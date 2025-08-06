@@ -1,4 +1,4 @@
-Feature: WorkMotion Login and Error Handling
+Feature: WorkMotion Login
   As a user
   I want to securely login to the WorkMotion platform
   So that I can access my dashboard and manage my global workforce

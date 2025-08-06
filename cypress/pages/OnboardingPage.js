@@ -26,7 +26,7 @@ class OnboardingPage {
     ptoInput: () => cy.get('[data-cy="steps-paid-time-off-stepper-input"]'),
     carryOverUnusedPTONo: () => cy.get('[data-cy="steps-paid-time-off-carryover-selector-no-radio""]'),
     compensatedForworkingDuringBankHolidaysYes: () => cy.get('[data-cy="steps-extra-paid-time-off-selector-yes-radio"]'),
-    probationPeriodInput: () => cy.get('[data-cy="steps-probation-period-stepper-input"]'),
+    //probationPeriodInput: () => cy.get('[data-cy="steps-probation-period-stepper-input"]'),
     terminationNoticePeriodInput: () => cy.get('[data-cy="steps-termination-notice-period-stepper-input"]'),
     ESOPNo: () => cy.get('[data-cy="steps-esop-provided-no-radio"]'),
     healthInsuranceYes: () => cy.get('[data-cy="steps-private-health-insurance-selector-yes-radio"]'),
@@ -36,7 +36,7 @@ class OnboardingPage {
     bonusFrequencyDropdown: () => cy.get('[data-cy="steps-bonus-payout-frequency-select-menu"]'),
     variableBonusNo: () => cy.get('[data-cy="steps-variable-bonus-selector-no-radio"]'),
     signOnBonusInput: () => cy.get('[data-cy="steps-sign-on-bonus-localCurrencyInput"]'),
-    //allowancesNo: () => cy.contains('No'),
+   //receiveAllowancesNo: () => cy.contains('No'),
     viewCostBreakdownBtn: () => cy.get('#salary-calculator-calculate-btn'),
     costBreakdownGridView: () => cy.get('#estimated-onboarding-cost-body'),
     costBreakdownPopupCloseBtn: () => cy.get('[data-cy="salary-calculator-result-close-button"]'),
@@ -160,9 +160,9 @@ class OnboardingPage {
     this.elements.compensatedForworkingDuringBankHolidaysYes().click();
   }
 
-  enterProbationPeriod(value) {
+/*   enterProbationPeriod(value) {
     this.elements.probationPeriodInput().clear().type(value);
-  }
+  } */
 
   enterTerminationNoticePeriod(value) {
     this.elements.terminationNoticePeriodInput().clear().type(value);
@@ -204,7 +204,7 @@ class OnboardingPage {
     this.elements.viewCostBreakdownBtn().click();
   }
 
-  verifyCostBreakdownVisible() {
+  verifyCostBreakdownVisiblity() {
     this.elements.costBreakdownGridView().should('be.visible');
   }
 
@@ -227,13 +227,17 @@ class OnboardingPage {
   verifySuccessCardVisibility() {
     this.elements.successCard().should('be.visible');
   }
-  
+
   verifySuccessMessageVisibility() {
     this.elements.successMessage().should('be.visible');
   }
 
   clickGoToTalentList() {
     this.elements.goToTalentListBtn().click();
+  }
+
+  openOnboardingsTab() {
+    this.elements.onboardingsTab().click();
   }
 }
 
