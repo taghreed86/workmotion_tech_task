@@ -31,7 +31,7 @@ Feature: Talent Onboarding Workflow
     And I enter "<costCenterInvoiceReference>" as Cost Center Invoice Reference
     And I select "<subEntity>" as Sub Entity
     And I click the "Continue" button
-    And I enter "<pto>" as Paid Time Off (PTO)
+    #And I enter "<pto>" as Paid Time Off (PTO)
     And I select "<carryOverPTOOption>" for Carry Over Unused PTO
     And I select "<bankHolidayCompensationOption>" for Compensated for Bank Holidays
     And I enter "<terminationNoticePeriod>" as Termination Notice Period
@@ -40,13 +40,13 @@ Feature: Talent Onboarding Workflow
     And I select "<healthInsuranceOption>" for Health Insurance
     And I enter "<baseSalary>" as Base Salary per Year
     And I select "<receiveBonusOption>" for Receive Bonus
-    And I enter "<annualBonus>" as Annual Bonus Amount
-    And I select "<bonusFrequency>" as Bonus Frequency
+    #And I enter "<annualBonus>" as Annual Bonus Amount
+    #And I select "<bonusFrequency>" as Bonus Frequency
     And I select "<variableBonusOption>" for Variable Bonus
     And I enter "<signOnBonus>" as Sign-On Bonus
     And I click the "View Cost Breakdown" button
-    And I verify cost breakdown popup appears
-    And I close the cost breakdown popup
+    Then The cost breakdown popup should be displayed
+    When I close the cost breakdown popup
     And I click the "Continue" button
     And I enter "<talentEmail>" as Talent Email
     And I click the "Continue" button

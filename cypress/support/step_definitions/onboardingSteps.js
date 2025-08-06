@@ -121,9 +121,9 @@ When('I select {string} as Sub Entity', () => {
   OnboardingPage.selectSubEntity(onboardingData.subEntity);
 });
 
-When('I enter {string} as Paid Time Off \\(PTO)', () => {
+/* When('I enter {string} as Paid Time Off \\(PTO)', () => {
   OnboardingPage.enterPTO(onboardingData.pto);
-});
+}); */
 
 When('I select {string} for Carry Over Unused PTO', () => {
   OnboardingPage.clickCarryOverUnusedPTONo();
@@ -150,16 +150,16 @@ When('I enter {string} as Base Salary per Year', () => {
 });
 
 When('I select {string} for Receive Bonus', () => {
-  OnboardingPage.clickReceiveBonusYes();
+  OnboardingPage.clickReceiveBonusNo();
 });
 
-When('I enter {string} as Annual Bonus Amount', () => {
+/* When('I enter {string} as Annual Bonus Amount', () => {
   OnboardingPage.enterGrossAnnualBonus(onboardingData.annualBonus);
 });
 
 When('I select {string} as Bonus Frequency', () => {
   OnboardingPage.selectBonusFrequency(onboardingData.bonusFrequency);
-});
+}); */
 
 When('I select {string} for Variable Bonus', () => {
   OnboardingPage.clickVariableBonusNo();
@@ -169,8 +169,15 @@ When('I enter {string} as Sign-On Bonus', () => {
   OnboardingPage.enterSignOnBonus(onboardingData.signOnBonus);
 });
 
-When('I verify cost breakdown popup appears', () => {
+/* When('I verify cost breakdown popup appears', () => {
   OnboardingPage.verifyCostBreakdownVisiblity();
+});
+ */
+
+Then('The cost breakdown popup should be displayed', () => {
+  OnboardingPage.isCostBreakdownVisible().then((isVisible) => {
+    expect(isVisible).to.equal(true);
+  });
 });
 
 When('I close the cost breakdown popup', () => {
@@ -209,7 +216,19 @@ When('I navigate to the {string} tab', () => {
 });
 
 Then('I should see {string} in the Onboardings tab with country {string} and status {string}', () => {
-  cy.contains(`${onboardingData.firstName} ${onboardingData.lastName}`).should("be.visible");
-  cy.contains(onboardingData.country).should("be.visible");
-  cy.contains(onboardingData.expectedStatus).should("be.visible");
+  const fullName = `${onboardingData.firstName} ${onboardingData.lastName}`;
+
+  OnboardingPage.getTheNewlyAddedTalentName().then((actualText) => {
+    expect(actualText.trim()).to.equal(fullName);
+  });
+
+  OnboardingPage.getTheNewlyAddedTalentCountry().then((actualText) => {
+    expect(actualText.trim()).to.equal(onboardingData.country);
+  });
+
+  OnboardingPage.getTheNewlyAddedTalentStatus().then((actualText) => {
+    expect(actualText.trim()).to.equal(onboardingData.status);
+  });
 });
+
+

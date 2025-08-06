@@ -2,10 +2,14 @@ import { Given, When, Then, Before } from "@badeball/cypress-cucumber-preprocess
 import LoginPage from "../../pages/loginPage.js";
 
 let credentials; 
+let validationError;
 
 Before(() => {
   cy.fixture("loginData").then((data) => {
     credentials = data;
+  });
+  cy.fixture("login-failure").then((data) => {
+    validationError = data;
   });
 });
 
@@ -48,6 +52,11 @@ Then("I should be redirected to the dashboard", () => {
 
 Then("I should see an error message stating that the entered data is invalid", () => {
   cy.wait("@loginFailure").then(() => {
-    LoginPage.verifyErrorMessageVisibilty();
+    LoginPage.isErrorMessageVisibile().then((isVisible) => {
+      expect(isVisible).to.equal(true);
+    });
+    LoginPage.getErrorMessageText().then((text) => {
+      expect(text).to.equal(validationError.message);
+    });
   });
 });
