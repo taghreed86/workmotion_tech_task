@@ -16,23 +16,27 @@ class OnboardingPage {
     timesheetApproverName: () => cy.get('[data-cy="steps-timesheets-approver-name-input"]'),
     timesheetApproverEmail: () => cy.get('[data-cy="steps-timesheets-approver-email-input"]'),
     contractTypePermanent: () => cy.get('input[type="radio"][value="permanent"]'),
-    startDateInput: () => cy.get('input[placeholder="DD/MM/YYYY"]'),
+    startDateInput: () => cy.get('input[placeholder="DD/MM/YYYY"][type="text"]'),
+    editDateBtn: () => cy.get('[data-testid="PenIcon"]'),
+    setDateTextBox: () => cy.get('input[placeholder="DD/MM/YYYY"][type="tel"]'),
+    selectDatePickerOKBtn: () => cy.get('[data-cy="mui-datepicker-actions-accept"]'),
     workFromHomeYes: () => cy.get('[data-cy="steps-work-from-home-selector-yes-radio"]'),
     reimburseExpensesNo: () => cy.get('[data-cy="steps-eligible-reimbursements-selector-no-radio"]'),
     costCenterInvoiceReference : () => cy.get('[data-cy="steps-cost-center-input"]'),
-    subEntityDropdown: () => cy.get('input[name="Sub entity"]'),
+    subEntityInput: () => cy.get('[data-testid="dropdown-collection"]'),
+    subEntityDropdown: () => cy.get('[data-testid="dropdown-collection"]'),
     continueBtn: () => cy.get('#onboarding-continue-btn'),
-    ptoInput: () => cy.get('[data-cy="steps-paid-time-off-stepper-input"]'),
-    carryOverUnusedPTONo: () => cy.get('[data-cy="steps-paid-time-off-carryover-selector-no-radio""]'),
+    ptoInput: () => cy.get('input[data-cy="steps-paid-time-off-stepper-input"]'),
+    carryOverUnusedPTONo: () => cy.get('[data-cy="steps-paid-time-off-carryover-selector-no-radio"]'),
     compensatedForworkingDuringBankHolidaysYes: () => cy.get('[data-cy="steps-extra-paid-time-off-selector-yes-radio"]'),
-    //probationPeriodInput: () => cy.get('[data-cy="steps-probation-period-stepper-input"]'),
     terminationNoticePeriodInput: () => cy.get('[data-cy="steps-termination-notice-period-stepper-input"]'),
     ESOPNo: () => cy.get('[data-cy="steps-esop-provided-no-radio"]'),
     healthInsuranceYes: () => cy.get('[data-cy="steps-private-health-insurance-selector-yes-radio"]'),
     baseSalaryInput: () => cy.get('[data-cy="steps-salary-gross-salary-annual-localCurrencyInput"]'),
     receiveBonusYes: () => cy.get('[data-cy="steps-annual-bonus-selector-yes-radio"]'),
     grossAnnualBonusAmount: () => cy.get('[data-cy="steps-total-yearly-bonus-localCurrencyInput"]'),
-    bonusFrequencyDropdown: () => cy.get('[data-cy="steps-bonus-payout-frequency-select-menu"]'),
+    bonusFrequencyInput: () => cy.get('[data-testid="dropdown-collection"]'),
+    bonusFrequencyDropdown: () => cy.get('#react-select-5-listbox'),
     variableBonusNo: () => cy.get('[data-cy="steps-variable-bonus-selector-no-radio"]'),
     signOnBonusInput: () => cy.get('[data-cy="steps-sign-on-bonus-localCurrencyInput"]'),
    //receiveAllowancesNo: () => cy.contains('No'),
@@ -114,7 +118,11 @@ class OnboardingPage {
   }
 
   enterStartDate(startDate) {
-    this.elements.startDateInput().type(startDate);
+    this.elements.startDateInput().click();
+    this.elements.editDateBtn().click();
+    this.elements.setDateTextBox().clear().type(startDate);
+    cy.wait(1000);
+    this.elements.selectDatePickerOKBtn().click();
   }
 
   clickWorkFromHomeYes() {
@@ -130,8 +138,9 @@ class OnboardingPage {
   }
 
   selectSubEntity(subEntity) {
-    this.elements.subEntityDropdown().type(subEntity);
-    cy.contains(subEntity).click();
+    this.elements.subEntityInput().click();
+    this.elements.subEntityDropdown().contains(subEntity).click();
+    cy.wait(1000);
   }
 
   clickContinue() {
@@ -149,10 +158,6 @@ class OnboardingPage {
   clickCompensatedForBankHolidaysYes() {
     this.elements.compensatedForworkingDuringBankHolidaysYes().click();
   }
-
-/*   enterProbationPeriod(value) {
-    this.elements.probationPeriodInput().clear().type(value);
-  } */
 
   enterTerminationNoticePeriod(value) {
     this.elements.terminationNoticePeriodInput().clear().type(value);
@@ -179,7 +184,9 @@ class OnboardingPage {
   }
 
   selectBonusFrequency(frequency) {
-    this.elements.bonusFrequencyDropdown().select(frequency);
+    this.elements.bonusFrequencyInput().click();
+    this.elements.bonusFrequencyDropdown().contains(frequency).click();
+    cy.wait(1000);
   }
 
   clickVariableBonusNo() {

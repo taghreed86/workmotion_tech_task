@@ -35,6 +35,9 @@ When('I click the {string} button', (button) => {
     case "Continue":
       OnboardingPage.clickContinue();
       break;
+    case "View Cost Breakdown":
+      OnboardingPage.clickViewCostBreakdown();
+      break;
     case "Finish":
       OnboardingPage.clickFinish();
       break;
@@ -45,10 +48,6 @@ When('I click the {string} button', (button) => {
       throw new Error(`Unknown button: ${button}`);
   }
 });
-
-/* When('I select {string} from the dropdown', () => {
-  OnboardingPage.selectCreateNew();
-}); */
 
 When('I click "Talent Option"', () => {
   OnboardingPage.clickTalentOption();
@@ -168,10 +167,6 @@ When('I select {string} for Variable Bonus', () => {
 
 When('I enter {string} as Sign-On Bonus', () => {
   OnboardingPage.enterSignOnBonus(onboardingData.signOnBonus);
-});
-
-When('I click the "View Cost Breakdown" button', () => {
-  OnboardingPage.clickViewCostBreakdown();
 });
 
 When('I verify cost breakdown popup appears', () => {
