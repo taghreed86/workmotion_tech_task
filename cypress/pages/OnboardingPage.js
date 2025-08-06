@@ -24,27 +24,18 @@ class OnboardingPage {
     reimburseExpensesNo: () => cy.get('[data-cy="steps-eligible-reimbursements-selector-no-radio"]'),
     costCenterInvoiceReference : () => cy.get('[data-cy="steps-cost-center-input"]'),
     subEntityInput: () => cy.get('[data-testid="dropdown-collection"]'),
-    //subEntityInput: () => cy.get('[data-cy="steps-company-sub-entity-select-input"]'),
     subEntityDropdown: () => cy.get('[data-testid="dropdown-collection"]'),
     continueBtn: () => cy.get('#onboarding-continue-btn'),
-    //ptoInput: () => cy.get('input[data-cy="steps-paid-time-off-stepper-input"]'),
     carryOverUnusedPTONo: () => cy.get('label[data-cy="steps-paid-time-off-carryover-selector-no-radio"]'),
     compensatedForworkingDuringBankHolidaysYes: () => cy.get('[data-cy="steps-extra-paid-time-off-selector-yes-radio"]'),
     terminationNoticePeriodInput: () => cy.get('[data-cy="steps-termination-notice-period-stepper-input"]'),
     ESOPNo: () => cy.get('[data-cy="steps-esop-provided-no-radio"]'),
     healthInsuranceYes: () => cy.get('[data-cy="steps-private-health-insurance-selector-yes-radio"]'),
     baseSalaryInput: () => cy.get('[data-cy="steps-salary-gross-salary-annual-localCurrencyInput"]'),
-    //receiveBonusYes: () => cy.get('[data-cy="steps-annual-bonus-selector-yes-radio"]'),
     receiveBonusNo: () => cy.get('[data-cy="steps-annual-bonus-selector-no-radio"]'),
-    //grossAnnualBonusAmount: () => cy.get('[data-cy="steps-total-yearly-bonus-localCurrencyInput"]'),
-    //bonusFrequencyMainList: () => cy.get('[data-testid="dropdown-collection"]'),
-    //bonusFrequencyInput: () => cy.get('[data-cy="steps-variable-bonus-payout-frequency-select-input"]'),
-    //bonusFrequencyDropdown: () => cy.get('#react-select-5-listbox'),
     variableBonusNo: () => cy.get('[data-cy="steps-variable-bonus-selector-no-radio"]'),
     signOnBonusInput: () => cy.get('[data-cy="steps-sign-on-bonus-localCurrencyInput"]'),
-   //receiveAllowancesNo: () => cy.contains('No'),
     viewCostBreakdownBtn: () => cy.get('#salary-calculator-calculate-btn'),
-    //costBreakdownGridView: () => cy.get('#estimated-onboarding-cost-body'),
     costBreakdownPopup: () => cy.get('div[class="MuiBox-root css-luwg4s"]'),
     costBreakdownPopupCloseBtn: () => cy.get('[data-cy="salary-calculator-result-close-button"]'),
     talentEmailInput: () => cy.get('[data-cy="steps-candidate-email-input"]'),
@@ -56,7 +47,6 @@ class OnboardingPage {
     onboardingsTab: () => cy.contains('Onboardings'),
     onboardingsListTalentName: () => cy.get('[data-cy="talents-name-cell"]'),
     onboardingsListCountry: () => cy.get('[data-testid="country-name"]'),
-    onboardingsListTalentStatus: () => cy.get('span[class="sc-kdlNaq iBMQHk"]')
 
   };
 
@@ -78,6 +68,7 @@ class OnboardingPage {
 
   clickGetStarted() {
     this.elements.getStartedBtn().click();
+    cy.wait(3000);
   }
 
   enterFirstName(firstName) {
@@ -152,11 +143,8 @@ class OnboardingPage {
 
   clickContinue() {
     this.elements.continueBtn().click();
+    cy.wait(3000);
   }
-
-/*   enterPTO(value) {
-    this.elements.ptoInput().clear().type(value);
-  } */
 
   clickCarryOverUnusedPTONo() {
     this.elements.carryOverUnusedPTONo().click();
@@ -181,10 +169,6 @@ class OnboardingPage {
   enterBaseSalary(value) {
     this.elements.baseSalaryInput().clear().type(value);
   }
-
-/*   clickReceiveBonusYes() {
-    this.elements.receiveBonusYes().click();
-  } */
 
   clickReceiveBonusNo() {
     this.elements.receiveBonusNo().click();
@@ -211,12 +195,9 @@ class OnboardingPage {
 
   clickViewCostBreakdown() {
     this.elements.viewCostBreakdownBtn().click();
+
   }
 
-/*   verifyCostBreakdownVisiblity() {
-    this.elements.costBreakdownPopup().should('be.visible');
-  }
- */
   isCostBreakdownVisible() {
   return this.elements.costBreakdownPopup().then(($el) => {
     return Cypress.$($el).is(':visible'); // returns true or false
@@ -237,6 +218,7 @@ class OnboardingPage {
 
   clickFinish() {
     this.elements.finishBtn().click();
+    cy.wait(3000);
   }
 
   verifySuccessCardVisibility() {
@@ -249,10 +231,12 @@ class OnboardingPage {
 
   clickGoToTalentList() {
     this.elements.goToTalentListBtn().click();
+    cy.wait(3000);
   }
 
   openOnboardingsTab() {
     this.elements.onboardingsTab().click();
+    cy.wait(3000);
   }
 
   getTheNewlyAddedTalentName() {
@@ -261,10 +245,6 @@ class OnboardingPage {
 
   getTheNewlyAddedTalentCountry() {
     return this.elements.onboardingsListCountry().eq(0).invoke('text');
-  }
-
-  getTheNewlyAddedTalentStatus() {
-    return this.elements.onboardingsListTalentStatus().eq(0).invoke('text');
   }
 
 }

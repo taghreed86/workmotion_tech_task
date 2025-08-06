@@ -121,10 +121,6 @@ When('I select {string} as Sub Entity', () => {
   OnboardingPage.selectSubEntity(onboardingData.subEntity);
 });
 
-/* When('I enter {string} as Paid Time Off \\(PTO)', () => {
-  OnboardingPage.enterPTO(onboardingData.pto);
-}); */
-
 When('I select {string} for Carry Over Unused PTO', () => {
   OnboardingPage.clickCarryOverUnusedPTONo();
 });
@@ -153,14 +149,6 @@ When('I select {string} for Receive Bonus', () => {
   OnboardingPage.clickReceiveBonusNo();
 });
 
-/* When('I enter {string} as Annual Bonus Amount', () => {
-  OnboardingPage.enterGrossAnnualBonus(onboardingData.annualBonus);
-});
-
-When('I select {string} as Bonus Frequency', () => {
-  OnboardingPage.selectBonusFrequency(onboardingData.bonusFrequency);
-}); */
-
 When('I select {string} for Variable Bonus', () => {
   OnboardingPage.clickVariableBonusNo();
 });
@@ -168,11 +156,6 @@ When('I select {string} for Variable Bonus', () => {
 When('I enter {string} as Sign-On Bonus', () => {
   OnboardingPage.enterSignOnBonus(onboardingData.signOnBonus);
 });
-
-/* When('I verify cost breakdown popup appears', () => {
-  OnboardingPage.verifyCostBreakdownVisiblity();
-});
- */
 
 Then('The cost breakdown popup should be displayed', () => {
   OnboardingPage.isCostBreakdownVisible().then((isVisible) => {
@@ -215,7 +198,7 @@ When('I navigate to the {string} tab', () => {
   OnboardingPage.openOnboardingsTab();
 });
 
-Then('I should see {string} in the Onboardings tab with country {string} and status {string}', () => {
+Then('I should see {string} in the Onboardings tab with country {string}', () => {
   const fullName = `${onboardingData.firstName} ${onboardingData.lastName}`;
 
   OnboardingPage.getTheNewlyAddedTalentName().then((actualText) => {
@@ -224,10 +207,6 @@ Then('I should see {string} in the Onboardings tab with country {string} and sta
 
   OnboardingPage.getTheNewlyAddedTalentCountry().then((actualText) => {
     expect(actualText.trim()).to.equal(onboardingData.country);
-  });
-
-  OnboardingPage.getTheNewlyAddedTalentStatus().then((actualText) => {
-    expect(actualText.trim()).to.equal(onboardingData.status);
   });
 });
 

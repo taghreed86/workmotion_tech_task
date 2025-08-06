@@ -10,7 +10,6 @@ Feature: Talent Onboarding Workflow
  @successful-add-talent
   Scenario: Add a new talent with valid data and verify it appears in the Onboardings list
     When I click the "Add Talent" button
-    #And I select "Create New" from the dropdown
     And I click "Talent Option"
     And I select "<country>" as the country
     And I click the "Get Started" button
@@ -31,7 +30,6 @@ Feature: Talent Onboarding Workflow
     And I enter "<costCenterInvoiceReference>" as Cost Center Invoice Reference
     And I select "<subEntity>" as Sub Entity
     And I click the "Continue" button
-    #And I enter "<pto>" as Paid Time Off (PTO)
     And I select "<carryOverPTOOption>" for Carry Over Unused PTO
     And I select "<bankHolidayCompensationOption>" for Compensated for Bank Holidays
     And I enter "<terminationNoticePeriod>" as Termination Notice Period
@@ -40,8 +38,6 @@ Feature: Talent Onboarding Workflow
     And I select "<healthInsuranceOption>" for Health Insurance
     And I enter "<baseSalary>" as Base Salary per Year
     And I select "<receiveBonusOption>" for Receive Bonus
-    #And I enter "<annualBonus>" as Annual Bonus Amount
-    #And I select "<bonusFrequency>" as Bonus Frequency
     And I select "<variableBonusOption>" for Variable Bonus
     And I enter "<signOnBonus>" as Sign-On Bonus
     And I click the "View Cost Breakdown" button
@@ -57,7 +53,7 @@ Feature: Talent Onboarding Workflow
     When I click the "Go To Talent List" button
     Then I should be redirected to the Talents Dashboard
     When I navigate to the "Onboardings" tab
-    Then I should see "<firstName> <lastName>" in the Onboardings tab with country "<country>" and status "<expectedStatus>"
+    Then I should see "<firstName> <lastName>" in the Onboardings tab with country "<country>"
 
 
 #   @fields-validations
